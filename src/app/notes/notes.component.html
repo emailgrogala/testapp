@@ -1,7 +1,21 @@
-<p>notes works!</p>
+<!-- <p>notes works!</p>
 <h1>{{note.id}} {{note.title}}</h1>
 <div>{{note.description}}</div>
 <hr>
 <div>
     <input id="title" [(ngModel)]="note.title" placeholder="title">
-</div>
+</div> -->
+<hr>
+<h2>NOTES</h2>
+<ul class="notes">
+    <li *ngFor="let note of notes">
+        <button type="button" (click)="onSelect(note)">
+            <span>{{note.id}}</span>
+            <span>{{note.title}}</span>
+            <span>{{selectedNote?.id}}</span>
+        </button>
+        <input *ngIf="note.id==selectedNote?.id && isShown" [(ngModel)]="note.description">
+    </li>
+</ul>
+<!-- <div>{{selectedNote?.id}}</div> -->
+<!-- https://angular.io/tutorial/toh-pt2 -->
